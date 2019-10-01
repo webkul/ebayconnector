@@ -1,0 +1,16 @@
+{
+    "name": "webkul/ebayconnector",
+    "description": "For Ebay API",
+    "version": "1.0.0",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Ebay\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
