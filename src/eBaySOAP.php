@@ -1,12 +1,32 @@
 <?php
+/**
+ * @category   Webkul
+ * @package    Webkul_EbayConnector
+ * @author     Webkul Software Private Limited
+ * @copyright  Copyright (c) Webkul Software Private Limited (https://webkul.com)
+ * @license    https://store.webkul.com/license.html
+ */
+ 
 namespace Ebay;
 
 // Main class for communication with eBay Web services via SOAP
 class eBaySOAP extends \SoapClient
 {
+    /**
+     * @var array
+     */
     private $_headers = null;
+
+    /**
+     * @var eBaySession
+     */
     private $_session = null;
 
+    /**
+     * Construct
+     *
+     * @param eBaySession $session
+     */
     public function __construct(eBaySession $session)
     {
         $this->_session = $session;
@@ -14,6 +34,11 @@ class eBaySOAP extends \SoapClient
         parent::__construct($session->wsdl, $session->options);
     }
 
+    /**
+     * SetHeaders
+     *
+     * @return void
+     */
     private function __setHeaders()
     {
         $eBayAuth = new eBayAuth($this->_session);
@@ -22,6 +47,14 @@ class eBaySOAP extends \SoapClient
         $this->_headers = $headers;
     }
 
+    /**
+     * Call
+     *
+     * @param string $function
+     * @param array $args
+     * @return mixed
+     */
+    #[\ReturnTypeWillChange]
     public function __call($function, $args)
     {
         try {

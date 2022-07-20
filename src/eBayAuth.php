@@ -1,12 +1,33 @@
 <?php
+/**
+ * @category   Webkul
+ * @package    Webkul_EbayConnector
+ * @author     Webkul Software Private Limited
+ * @copyright  Copyright (c) Webkul Software Private Limited (https://webkul.com)
+ * @license    https://store.webkul.com/license.html
+ */
+
 namespace Ebay;
 
 // Necessary to construct SOAP headers for authentication
 class eBayAuth
 {
+    /**
+     * @var string
+     */
     private $eBayAuthToken;
+
+    /**
+     * @var \SoapVar
+     */
     private $Credentials;
 
+    /**
+     * Construct
+     *
+     * @param eBaySession $session
+     * @return void
+     */
     public function __construct(eBaySession $session)
     {
         $credentials = new eBayCredentials($session);

@@ -1,4 +1,11 @@
 <?php
+/**
+ * @category   Webkul
+ * @package    Webkul_EbayConnector
+ * @author     Webkul Software Private Limited
+ * @copyright  Copyright (c) Webkul Software Private Limited (https://webkul.com)
+ * @license    https://store.webkul.com/license.html
+ */
 
 namespace Ebay;
 
@@ -6,8 +13,19 @@ namespace Ebay;
 
 class eBaySession
 {
+    /**
+     * @var array
+     */
     private $_properties;
 
+    /**
+     * Construct
+     *
+     * @param string $dev
+     * @param string $app
+     * @param string $cert
+     * @return void
+     */
     public function __construct($dev, $app, $cert)
     {
         $this->_properties = [
@@ -36,13 +54,20 @@ class eBaySession
                                             'SearchResultItemArrayType' => 'eBaySearchResultItemArrayType',
                                             'SearchResultItemType' => 'eBaySearchResultItemType',
                                             /** 'AmountType' => 'eBayAmountType',
-                                             'FeeType' => 'eBayFeeType',
-                                             'FeesType' => 'eBayFeesType', */
+                                             *'FeeType' => 'eBayFeeType',
+                                             *'FeesType' => 'eBayFeesType', */
                                         ],
                            /** 'compression' => SOAP_COMPRESSION_ACCEPT | SOAP_COMPRESSION_GZIP, */
                       ];
     }
 
+    /**
+     * Set
+     *
+     * @param string $property
+     * @param string $value
+     * @return void
+     */
     public function __set($property, $value)
     {
         if (array_key_exists($property, $this->_properties)) {
@@ -52,6 +77,12 @@ class eBaySession
         }
     }
 
+    /**
+     * Get
+     *
+     * @param string $property
+     * @return string
+     */
     public function __get($property)
     {
         if (array_key_exists($property, $this->_properties)) {

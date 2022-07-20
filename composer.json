@@ -1,7 +1,7 @@
 {
     "name": "webkul/ebayconnector",
     "description": "For Ebay API",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "license": [
         "OSL-3.0",
         "AFL-3.0"
